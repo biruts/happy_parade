@@ -67,7 +67,8 @@ gulp.task('lib', function(){
     './node_modules/jquery.easing/jquery.easing.min.js',
     './node_modules/bootstrap-select/dist/js/bootstrap-select.min.js',	
 	  './node_modules/jquery-mask-plugin/dist/jquery.mask.min.js',
-    './node_modules/jquery-form-validator/form-validator/jquery.form-validator.min.js',  
+    //'./node_modules/jquery-form-validator/form-validator/jquery.form-validator.min.js',  
+    'dev/lib/jquery.form-validator.min.js',
     //'./node_modules/smooth-scroll/dist/js/smooth-scroll.min.js',    
     ])
   .pipe(concat('lib.js'))

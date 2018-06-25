@@ -524,6 +524,15 @@ a.regulamento {
 .termos .checkbox input[type=checkbox] { margin-left: -16px;}
 .erro.checkbox label { border: 1px solid #d9534f; }
 
+//Noticias
+#noticias {
+  padding: 80px 0 50px;
+  .card-body {
+    min-height: 210px;
+  }
+}
+
+
 //Footer
 footer {
   margin-top: 50px;

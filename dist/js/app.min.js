@@ -191,6 +191,9 @@ $(document).on('click', '.nav-pills li a', function(e) {
     $('.nav-pills li#preCad a').removeClass('active show');
 });
 
+$('.nav-item a').click(function(){
+    $('.navbar-collapse').collapse('hide');
+}); 
 
 //Carrega Galeria das vacas / Noticias
 $(document).ready(function() { 
