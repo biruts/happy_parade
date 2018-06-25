@@ -78,7 +78,7 @@ gulp.task('lib', function(){
 gulp.task('js', function(){
 	return gulp.src(['./dev/js/functions_client.js'])
 	.pipe(concat('app.js'))
-	.pipe(jsmin())
+	//.pipe(jsmin())
 	.pipe(rename({suffix: '.min'}))
 	.pipe(gulp.dest('./dist/js/'));
 });
