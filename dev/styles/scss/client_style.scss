@@ -112,6 +112,10 @@ h2 {
   font-size: 3.0rem;
   line-height: 3.0rem;
 }
+.emoji_copy {
+  max-width: 420px;
+  height: auto;
+}
 
 //Header 
 header {
@@ -143,13 +147,19 @@ header {
   h5 {
     color: $yellow_2;
     font-family: 'colgate_b';
-    font-size: 3.9rem;
-    line-height: 3.5rem;
+    font-size: 3.8rem;
+    line-height: 3.3rem;
     span {
       font-family: 'colgate_l';
       display: block;
     }
-  }  
+  } 
+  p {
+    position: absolute;
+    bottom: -10px;
+    z-index: 3;
+    color: #000;
+  } 
 }
 
 //Social
@@ -258,9 +268,13 @@ header {
   }
   .happy_destaque {
     position: absolute;               
-    top: -645px;
+    top: -590px;
     right: 0;
     z-index: 2;
+    img {
+      height: 510px;
+      width: auto;
+    }
   }
 }
 
@@ -526,10 +540,103 @@ a.regulamento {
 
 //Noticias
 #noticias {
-  padding: 80px 0 50px;
-  .card-body {
-    min-height: 210px;
+  padding: 50px 0 40px;
+  background: $yellow_1;
+  background-image: url('../images/bg_top_news.png'), url('../images/bg_top_news_2.png');
+  background-position: -100px -280px, right 240px;
+  background-repeat: no-repeat;  
+  h2 {
+    color: #fff;
   }
+  #noticias-hap {
+    padding: 30px 0;
+    .media {      
+      margin-bottom: 30px;
+      a {
+        color: #fff;
+        h5 {
+          text-transform: uppercase;
+          font-size: 1.2rem;
+          font-family: 'colgate_b';
+        }
+        p {
+          font-size: 0.8rem;
+          &.data {
+            font-size: 0.6rem;
+            letter-spacing: 1px;
+            color: #fff;
+            background: $blue;
+            display: table;
+            padding: 3px 8px 2px;
+            @include border-radius(100px);
+          }
+        }
+        &:hover {
+          text-decoration: none;
+          color: #000; 
+        }
+      }
+    }
+  }
+}
+
+//Galeria
+#galeria {
+  padding: 50px 0 40px;
+  background-image: url('../images/bg_top_galeria.png'), url('../images/bg_artistas_right.png');  
+  background-position: -100px -280px, 900px 200px;
+  background-repeat: no-repeat;  
+  h2 {
+    color: $blue;
+    margin-bottom: 40px;
+  }
+  .num_art {
+    position: absolute;
+    top: 10px;
+    left: 30px;
+    font-size: 20px;
+    font-weight: 900;
+    font-family: 'colgate_b';    
+  }
+  .slick-dots {
+    bottom: -50px;
+     li {
+      margin: 0 30px;
+      button {
+        background-color: $yellow_2;
+        width: 50px;        
+        height: 4px;
+        padding: 2px;
+        @include border-radius (0);
+      }
+      &.slick-active {
+        button {
+          background-color: $blue_2;
+        }
+      }
+    }
+  }
+  a {
+    color: #000;
+    &:hover{
+      color: $blue;
+      text-decoration: none;
+    }
+  }
+  .card-body {
+    min-height: 170px;
+    background: #fff;
+    border: solid 1px #f4f4f4;
+    .card-title {
+      text-transform: uppercase;
+    }
+    .card-text {
+      font-size: 0.9rem;
+      span{
+        display: block;
+      }
+    }
+  }  
 }
 
 
@@ -549,6 +656,62 @@ footer {
     margin: 50px 0;
     text-align: center;
   }
+}
+
+//Ekko {
+.ekko-lightbox  {
+  .modal-content {
+    position: relative;
+    background-clip: padding-box;
+    box-shadow: none;
+    border-width: 0px;
+    border-style: initial;
+    border-color: initial;
+    border-image: initial;
+    border-radius: 0px;
+    outline: 0px;
+    background-color: $yellow;
+    padding-top: 0.5rem;
+      .modal-header {        
+        border-bottom: 0;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+        position: absolute;
+        z-index: 2;        
+        padding: 0.5rem 0.8rem;
+        width: 100%;
+        .modal-title {
+          font-weight: 900;
+          text-align: center;
+          margin-bottom: 10px;
+          line-height: 1.0;
+        }
+      }
+      .modal-body {
+        position: relative;
+        flex: 1 1 auto;       
+        padding: 0 0.5rem 0.6rem; 
+      }
+      button{
+        &.close {
+          padding: 0;
+          background-color: $blue;
+          color: #fff;
+          border: 0;
+          opacity: 1;
+          -webkit-appearance: none;
+          text-shadow: none;
+
+          width: 30px;
+          height: 30px;
+
+          @include border-radius (100px);
+          margin: -8px -5px;
+        }
+        &:hover {
+          background: $red;
+        }
+  }   } 
 }
 
 /*//Modal*/

@@ -3,8 +3,8 @@
 $nome_conf = utf8_decode($_POST["nome_conf"]);
 $start = utf8_decode($_POST["start"]);//data nascimento 
 $natural = utf8_decode($_POST["natural"]); //naturalidade
-//$email = 'producao.saopaulo@cowparade.com.br';
-$email = 'lpaa83@gmail.com';
+$email = 'producao.saopaulo@happyartparade.com.br';
+//$email = 'lpaa83@gmail.com';
 $rg = utf8_decode($_POST["rg"]); 
 $cpf = utf8_decode($_POST["cpf"]); 
 $email_conf = utf8_decode($_POST["email_conf"]); 
@@ -16,12 +16,10 @@ $cidade = utf8_decode($_POST["cidade"]);
 $uf = utf8_decode($_POST["uf"]);//estado
 $cep = utf8_decode($_POST["cep"]); 
 $titulo_conf = utf8_decode($_POST["titulo_conf"]);
-$assunto      = 'Ficha de Inscrição | HappyArt Parade - SÃO PAULO';
-
+$assunto = 'Ficha de Inscrição | Happy Art Parade - SÃO PAULO';
 
 //formato o campo da mensagem
 $mensagem ='
-
 <div style="width: 500px; margin: 10px auto;">
   <table width="500px" cellspacing="0" cellpadding="0" border="0">
     <thead>
@@ -29,7 +27,7 @@ $mensagem ='
             <th colspan="2"><img src="http://leoaraujo.com/yodesign/happy_parade/images/logo_client_2.png" alt="header"></th>
         </tr>   
         <tr>
-            <th colspan="2" style="font-size: 22px; color: #007cc3; font-family: arial; padding-bottom: 20px; text-align: center;">Ficha de Inscrição - HappyArt Parade - SÃO PAULO</th>
+            <th colspan="2" style="font-size: 22px; color: #007cc3; font-family: arial; padding-bottom: 20px; text-align: center;">Ficha de Inscrição - Happy Art Parade </th>
         </tr>
     </thead>
     <tbody style="font-family: arial; color: #1b2341; font-size: 15px;">
@@ -72,7 +70,7 @@ $mensagem ='
 
 $mensagemconfirmacao2 ='
         <html>
-    <title>Ficha de Inscrição - HappyArt Parade - SÃO PAULO</title>
+    <title>Ficha de Inscrição - Happy Art Parade/title>
     <body>
     <div style="width: 500px; margin: 10px auto;">
     <table width="500px" cellspacing="0" cellpadding="0" border="0">

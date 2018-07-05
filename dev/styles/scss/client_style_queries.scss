@@ -1,6 +1,7 @@
 @import 'client_fontface.scss';
 //Colors
 @import 'client_colors.scss';
+//@import "./node_modules/sass-mediaqueries/_media-queries.scss";    
 
 $mq-mobile-portrait   : 320px  !default;
 $mq-mobile-landscape  : 480px  !default;
@@ -66,7 +67,387 @@ $mq-desktop           : 1200px !default;
   }
 }
 
-@include mobile-only() {
-  
+// tablet
+// ------------------------------
+
+// Both the portrait and landscape width of the tablet
+// Larger than a landscape mobile but less than or equal to a landscape tablet
+@mixin tablet-only {
+  @media only screen and (min-width : $mq-mobile-landscape + 1) and (max-width : $mq-tablet-landscape) {
+    @content;
+  }
 }
-//END MOBILE
+
+// Everything larger than mobile landscape up until the portrait width of the tablet
+@mixin tablet-portrait-only {
+  @media only screen and (min-width : $mq-mobile-landscape + 1) and (max-width : $mq-tablet-portrait) {
+    @content;
+  }
+}
+
+// Everything below and including the portrait width of the tablet
+@mixin tablet-portrait-and-below {
+  @media only screen and (max-width : $mq-tablet-portrait) {
+    @content;
+  }
+}
+
+// Everything above and including the portrait width of the tablet
+@mixin tablet-portrait-and-up {
+  @media only screen and (min-width : $mq-mobile-landscape + 1) {
+    @content;
+  }
+}
+
+// Larger than portrait but less than or equal to the landscape width
+@mixin tablet-landscape-only {
+  @media only screen and (min-width : $mq-tablet-portrait + 1) and (max-width : $mq-tablet-landscape) {
+    @content;
+  }
+}
+
+// Up to and including the tablet landscape
+@mixin tablet-landscape-and-below {
+  @media only screen and (max-width : $mq-tablet-landscape) {
+    @content;
+  }
+}
+
+// Everything larger than portrait tablet
+@mixin tablet-landscape-and-up {
+  @media only screen and (min-width : $mq-tablet-portrait + 1) {
+    @content;
+  }
+}
+
+// desktop
+// ------------------------------
+
+// Everything larger than a landscape tablet
+@mixin desktop-and-up {
+  @media only screen and (min-width : $mq-tablet-landscape + 1) {
+    @content;
+  }
+}
+
+// Everything below and including the desktop 
+@mixin desktop-and-below {
+  @media only screen and (max-width : $mq-desktop) {
+    @content;
+  }
+}
+
+// Everything larger than a landscape tablet but less than or equal to the desktop
+@mixin desktop-and-below {
+  @media only screen and (min-width : $mq-tablet-landscape + 1) and (max-width : $mq-desktop) {
+    @content;
+  }
+}
+
+// retina
+// ------------------------------
+
+// Retina screens have a 1.5 pixel ratio, not 2
+@mixin retina {
+  @media only screen and (-webkit-min-device-pixel-ratio : 1.5), only screen and (min-device-pixel-ratio : 1.5) {
+    @content;
+  }
+}
+
+
+@include mobile-only() {
+  .emoji_copy {
+    max-width: 280px;
+    height: auto;
+  }
+  h2 {
+    font-size: 1.9rem;
+    line-height: 2.0rem;
+  }
+  //Header
+  header {
+    //Nav Principal 
+    #nav_client, #nav_fixed_client {
+      .navbar-nav {
+        li {
+          &:before {
+            content: '';                      
+          }            
+        }
+      }  
+    }
+    .social {
+      a {      
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        padding: 4px 0;
+        color: #fff !important;
+        background: $yellow_1;      
+        @include border-radius(100px);
+        transition: 0.3s;     
+        &:hover {
+          background: $red;      
+        }
+      }
+    }
+  }
+  .social-header{
+    display: none;
+  }
+  //Carrousel
+  .carousel-caption {
+    text-align: left;
+    top: 5%;
+    left: 5%;
+    width: 90%;
+    h5 {
+      font-size: 2.5rem;
+      line-height: 2.2rem;
+      span {
+        font-family: 'colgate_l';
+        display: block;
+      }
+    }  
+    p {
+      position: absolute;
+      top: 130px;
+      font-size: 10px;
+      z-index: 3;
+      color: #000;
+    }
+  }
+  #a_happy {
+    h2 {
+      font-size: 3.0rem;
+      line-height: 3.1rem;
+    }
+    .bg_title {
+      position: absolute;
+      z-index: 2;
+      width: 100%;
+      height: 250px;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: url('../images/bg_title_happy.png') no-repeat;
+      background-position: -140px 0;
+      background-size: auto 250px;
+    }    
+    .happy_destaque {
+      position: absolute;               
+      top: -480px;
+      right: 10px;
+      z-index: 2;
+      img {
+        width: 300px;
+        height: auto;
+      }
+    }
+  } 
+  #bg_blue{
+    display: none;
+  }
+  //Esculturas
+  #esculturas_artistas {
+    background-image: url('../images/bg_artistas_left.png'), url('../images/bg_artistas_right.png');
+    background-position: -100px -200px, -200px 420px;
+    background-repeat: no-repeat;
+    padding: 0;
+    position: relative;
+    z-index: 1;
+    article {
+      header{
+        margin-top: 20px; 
+        margin-bottom: 0;     
+        height: 100px;        
+        h2 {
+          font-size: 2.7rem;
+          line-height: 2.7rem;
+        }
+      }  
+      p {
+          margin-top: 20px;        
+          padding-bottom: 30px;
+        }
+    }
+    .col-right {
+      padding-left: 20px;     
+    }
+    .img_central {
+      background: url('../images/porque_artistas.png') center top no-repeat;
+      background-size: 120px auto;
+      width: 120px;
+      height: 180px;
+      margin: 0;
+      top: -50px;
+      right: -210px;
+    }
+  } 
+  //Pinte
+  #pinte {
+    background: url('../images/bg_pinte.jpg')center center no-repeat;
+    background-size: 100% 100%;
+    min-height: auto;
+    height: auto;
+    padding-bottom: 20px;
+    margin-top: 50px;
+    .titulo_section {
+      width: 130px;
+      height: auto;
+      margin: -30px auto 10px;
+     }     
+  }
+  //NavPills
+  .nav-pills-m {
+    padding: 20px 0;
+    .nav-link{
+      text-align: center;
+      display: inline-block !important;
+      img {
+        width: 50px;
+      }
+      span {
+        max-width: 80px;
+        font-size: 10px;
+        display: block;
+      }
+    }  
+  }  
+  #preCad {
+    .nav-link.btn{
+      padding: 5px 20px;
+      font-size: 0.8rem;
+    }  
+  }
+  //Noticias
+  #noticias {
+    padding: 50px 0 40px;
+    background: $yellow_1;
+    background-image: url('../images/bg_top_news.png'), url('../images/bg_top_news_2.png');
+    background-position: -100px -280px,-150px bottom;
+    background-repeat: no-repeat;  
+    h2 {
+      color: #fff;
+    }
+    #noticias-hap {
+      .media{
+        display: block !important;
+        text-align: center;
+        .media-body {
+          margin-top: 10px;
+          .data {
+            display: inline-block;
+          }          
+        }
+      }
+    }
+  }
+
+}
+@include mobile-portrait-only() {
+  .emoji_copy {
+    max-width: 280px;
+    height: auto;
+  }
+   h2 {
+    font-size: 1.9rem;
+    line-height: 2.0rem;
+  }
+  
+  //Carrousel
+  .carousel-caption {
+    h5 {
+      font-size: 2.1rem;
+      line-height: 1.9rem;
+    }  
+  }
+  #a_happy {
+    h2 {
+      font-size: 2.4rem;
+      line-height: 2.3rem;
+    }
+    .bg_title {
+      width: 100%;
+      height: 220px;      
+      background-position: -140px 0;
+      background-size: auto 220px;
+    }    
+    .happy_destaque {      
+      top: -440px;
+      right: 10px;
+      z-index: 2;
+      img {
+        width: 270px;
+        height: auto;
+      }
+    }
+  } 
+  
+  //Esculturas
+  #esculturas_artistas {    
+    background-position: -100px -200px, -200px 440px;    
+    article {
+      header{
+        margin-top: 20px; 
+        margin-bottom: 0;             
+        h2 {
+          font-size: 2.2rem;
+          line-height: 2.2rem;
+        }
+      }  
+      p {
+          margin-top: 20px;        
+          padding-bottom: 30px;
+        }
+    }
+    .col-right {
+      padding-left: 20px;     
+    }
+    .img_central {      
+      background-size: 110px auto;
+      width: 110px;
+      height: 180px;
+      margin: 0;
+      right: -180px;
+      top: -40px;
+    }
+  } 
+  //Pinte
+  #pinte {
+    background: url('../images/bg_pinte.jpg')center center no-repeat;
+    background-size: 100% 100%;
+    min-height: auto;
+    height: auto;
+    padding-bottom: 20px;
+    margin-top: 50px;
+    .titulo_section {
+      width: 130px;
+      height: auto;
+      margin: -30px auto 10px;
+     }     
+  }
+  //NavPills
+  .nav-pills-m {
+    padding: 20px 0;
+    .nav-link{
+      text-align: center;
+      display: inline-block !important;
+      img {
+        width: 50px;
+      }
+      span {
+        max-width: 60px;
+        font-size: 10px;
+        display: block;
+      }
+    }  
+  }  
+  #preCad {
+    .nav-link.btn{
+      padding: 5px 20px;
+      font-size: 0.8rem;
+    }  
+  }
+}
+// //END MOBILE

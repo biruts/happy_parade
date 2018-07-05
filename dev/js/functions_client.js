@@ -1,6 +1,7 @@
 var APP = APP || {}
 APP.Happyparade = {
     setUp: function(){
+        this.galeria();
         this.navBarFixed();
         this.scrollBarNav();
         this.tabPinteHappy();
@@ -9,6 +10,43 @@ APP.Happyparade = {
         this.validarFormCadastro();
         this.applyMask();
         this.hashApply();
+        this.artHap();
+    },
+    artHap: function(){
+        $(document).on('click', '[data-toggle="lightbox"]', function(event) {
+            event.preventDefault();
+            $(this).ekkoLightbox();
+        });
+    },       
+    galeria: function(){
+        $('#galeria-hap').slick({
+            autoplay: true,
+            autoplaySpeed: 5000,
+            slidesToShow: 4,
+            slidesToScroll: 4,
+            arrows: false,
+            dots: true,
+            responsive: [
+            {
+              breakpoint: 768,
+              settings: {
+                arrows: false,
+                centerMode: true,
+                dots: true,
+                slidesToShow: 1
+              }
+            },
+            {
+              breakpoint: 480,
+              settings: {
+                arrows: false,
+                dots: false,
+                centerMode: true,
+                slidesToShow: 1
+              }
+            }
+          ]
+        });
     },
     navBarFixed: function(){
         $(window).on('scroll',function() {
@@ -172,16 +210,6 @@ APP.Happyparade = {
     APP.Happyparade.setUp();
 })();
 
-
-// $(document).on('click', '#preCad', function(e) {
-//     $('.nav-pills #cad').addClass('active');
-//     $('.nav-pills #pre, .nav-pills #dow').removeClass('active');    
-// });
-
-// $(document).on('click', '.nav-pills a', function(e) {
-//     $('#preCad').removeClass('active show');
-// });
-
 $(document).on('click', '#preCad', function(e) {
     $('.nav-pills li#cad a').addClass('active');
     $('.nav-pills li#pre a, .nav-pills li#dow a').removeClass('active');
@@ -197,8 +225,8 @@ $('.nav-item a').click(function(){
 
 //Carrega Galeria das vacas / Noticias
 $(document).ready(function() { 
-    $('#galeria-cowparade').load('galeria.html'); 
-    $('#noticias-cowparade').load('noticias.html'); 
+    //$('#galeria-hap').load('galeria.html'); 
+    $('#noticias-hap').load('noticias.html'); 
 });
 //End Carrega Galeria das vacas / Noticias
 
